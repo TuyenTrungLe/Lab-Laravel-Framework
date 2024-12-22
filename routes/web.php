@@ -2,6 +2,13 @@
 
 use Illuminate\Support\Facades\Route;
 
+use Illuminate\Support\Facades\Log;
+
+Route::get('/test-slack-log', function () {
+    Log::channel('slack')->error('Test error message sent to Slack!');
+    return 'Log has been sent to Slack!';
+});
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
