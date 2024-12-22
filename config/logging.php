@@ -85,7 +85,7 @@ return [
             'handler_with' => [
                 'host' => env('PAPERTRAIL_URL'),
                 'port' => env('PAPERTRAIL_PORT'),
-                'connectionString' => 'tls://'.env('PAPERTRAIL_URL').':'.env('PAPERTRAIL_PORT'),
+                'connectionString' => 'tls://' . env('PAPERTRAIL_URL') . ':' . env('PAPERTRAIL_PORT'),
             ],
         ],
 
@@ -117,6 +117,17 @@ return [
         'emergency' => [
             'path' => storage_path('logs/laravel.log'),
         ],
+
+        'channels' => [
+            'slack' => [
+                'driver' => 'slack',
+                'url' => env('LOG_SLACK_WEBHOOK_URL'),
+                'username' => 'Laravel Logger',
+                'emoji' => ':boom:',
+                'level' => 'error',
+            ],
+        ],
+
     ],
 
 ];
