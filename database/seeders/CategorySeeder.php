@@ -25,6 +25,9 @@ class CategorySeeder extends Seeder
         return $this->categories;
     }
 
+    /**
+     * Run the database seeds.
+     */
     public function run(): void
     {
         foreach ($this->getCategories() as $category) {
