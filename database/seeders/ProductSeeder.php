@@ -33,11 +33,16 @@ class ProductSeeder extends Seeder
         return collect($this->products);
     }
 
+    // public function run(): void
+    // {
+    //     foreach ($this->getProducts() as $product) {
+    //         $product['currency'] = self::DEFAULT_CURRENCY;
+    //         Product::create($product);
+    //     }
+    // }
+
     public function run(): void
     {
-        foreach ($this->getProducts() as $product) {
-            $product['currency'] = self::DEFAULT_CURRENCY;
-            Product::create($product);
-        }
+        Product::factory()->count(100)->create();
     }
 }
