@@ -34,8 +34,8 @@
                     fill="#219653" />
             </svg>
         </h1>
-        @if($hasSetting)
-        <livewire:setting-dropdown />
-        @endif
     </a>
+    @if($hasSetting)
+    <livewire:setting-dropdown />
+    @endif
 </div>
