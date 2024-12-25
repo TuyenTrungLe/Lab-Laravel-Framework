@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Order;
+use App\Events\OrderCreated;
 use Illuminate\Http\Request;
 use App\Services\CartService;
 use Illuminate\Support\Facades\URL;
@@ -31,6 +32,8 @@ class CheckoutController extends Controller
         $order = $cart->getCart()->order()->save(
             Order::factory()->make($validated)
         );
+
+        OrderCreated::dispatch($order);
 
         return redirect(URL::signedRoute('orders.complete', ['order' => $order->id]));
     }
