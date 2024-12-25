@@ -46,9 +46,7 @@ class OrderSeeder extends Seeder
      */
     private function getRamdomTargetProducts(int $total): array
     {
-
-        return $this->target_products
-            ->random(min($total, $this->target_products->count()))
+        return $this->target_products->random($total)
             ->map(function ($product) {
                 return ['product_id' => $product->id];
             })
